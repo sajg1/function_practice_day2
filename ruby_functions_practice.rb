@@ -63,10 +63,6 @@ def number_to_full_month_name(number)
   end
 end
 
-
-
-
-
 def number_to_short_month_name(number)
   if number == 1
     p "Jan"
@@ -95,4 +91,12 @@ def number_to_short_month_name(number)
   else
     p "WRONG"
   end
+end
+
+def volume_of_cube(side_length)
+  return (side_length ** 3)
+end
+
+def volume_of_sphere(radius)
+  volume = (4 / 3) * (3.14 * (radius ** 3)) 
 end
