@@ -34,7 +34,7 @@ def add_string_as_number(numstring_1, numstring_2)
 end
 
 def number_to_full_month_name(month)
-  case month
+  month_name = case month
     when 1
       p "January"
     when 2
@@ -61,6 +61,7 @@ def number_to_full_month_name(month)
       p "December"
     else
       p "Wrong!"
+    return month_name
   end
 end
 
@@ -95,35 +96,46 @@ end
 #   end
 # end
 
+#LONG WAY
+
+# def number_to_short_month_name(month)
+#   case month
+#     when 1
+#       p "Jan"
+#     when 2
+#       p "Feb"
+#     when 3
+#       p "Mar"
+#     when 4
+#       p "Apr"
+#     when 5
+#       p "May"
+#     when 6
+#       p "Jun"
+#     when 7
+#       p "Jul"
+#     when 8
+#       p "Aug"
+#     when 9
+#       p "Sep"
+#     when 10
+#       p "Oct"
+#     when 11
+#       p "Nov"
+#     when 12
+#       p "Dec"
+#     else
+#       p "Wrong!"
+#   end
+# end
+
+# REUSABLE AND DRY WAY
+
 def number_to_short_month_name(month)
-  case month
-    when 1
-      p "Jan"
-    when 2
-      p "Feb"
-    when 3
-      p "Mar"
-    when 4
-      p "Apr"
-    when 5
-      p "May"
-    when 6
-      p "Jun"
-    when 7
-      p "Jul"
-    when 8
-      p "Aug"
-    when 9
-      p "Sep"
-    when 10
-      p "Oct"
-    when 11
-      p "Nov"
-    when 12
-      p "Dec"
-    else
-      p "Wrong!"
-  end
+  full_month = number_to_full_month_name(month)
+  short_month_name = full_month.slice(0, 3)
+  #short_month_name = full_month[0..2]  *ARRAY VERSION
+  return short_month_name
 end
 
 #IF statment for short month
@@ -161,12 +173,22 @@ def volume_of_cube(side_length)
   return (side_length ** 3)
 end
 
+
+#first attempt at sphere
+# def volume_of_sphere(radius)
+#   volume = ((4 * (3.14 * (radius ** 3)) / 3))
+# end
+#   return volume.to_i
+
+
+  #for two decimals
 def volume_of_sphere(radius)
-  volume = ((4 * (3.14 * (radius ** 3)) / 3))
-  return volume.to_i
+  volume = (4.0/3.0) * Math::PI * (radius ** 3)
+  return volume.round(2)
 end
+# you could also make individual variables for each part of the calculation first.
 
 def fahrenheit_to_celsius(fahrenheit)
-  celcius = (fahrenheit - 32) / 1.8
-  return celcius.to_i
+  celcius = (fahrenheit - 32.0) / 1.8
+  return celcius.round(2)
 end
